@@ -8,10 +8,11 @@ include('include/auth.php');
     <h3>Use this form to upload your logo photo</h3>
         <!-- direct the info to go to the save logo page-->
         <form method="post" action="save-logo.php" enctype="multipart/form-data">
+           
             <!--photo fieldset-->
             <fieldset>
-                <label for="logo">Logo Photo:</label>
-                <input type="file" name="logo" accept="jpeg" />
+                <label for="photo">Logo Photo:</label>
+                <input type="file" name="photo" accept="jpeg" />
             </fieldset>
             <!-- save button-->
             <button>Save</button>
