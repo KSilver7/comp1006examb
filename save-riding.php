@@ -24,26 +24,32 @@ if (empty($provinceId)) {
 }
 
 if ($ok == true) {
-    // connect to db
-    include('include/db.php');
-    // add insert
-    $sql = "INSERT INTO examridings (ridingId, name, provinceId) VALUES
-        (:ridingId, :name, :provinceId)";
-    $cmd = $db->prepare($sql);
+    try {
+        // connect to db
+        include('include/db.php');
+        // add insert
+        $sql = "INSERT INTO examridings (ridingId, name, provinceId) VALUES
+            (:ridingId, :name, :provinceId)";
+        $cmd = $db->prepare($sql);
 
-    // Add bind params for safety
-    $cmd->bindParam(':ridingId', $ridingId, PDO::PARAM_INT);
-    $cmd->bindParam(':name', $name, PDO::PARAM_STR, 100);
-    $cmd->bindParam(':provinceId', $provinceId, PDO::PARAM_INT);
+        // Add bind params for safety
+        $cmd->bindParam(':ridingId', $ridingId, PDO::PARAM_INT);
+        $cmd->bindParam(':name', $name, PDO::PARAM_STR, 100);
+        $cmd->bindParam(':provinceId', $provinceId, PDO::PARAM_INT);
 
-    // add execute
-    $cmd->execute();
+        // add execute
+        $cmd->execute();
 
-    // disconnect from db
-    $db = null;
-    // add confirmation
-    echo "Riding Saved";
-    header('location:ridings.php');
+        // disconnect from db
+        $db = null;
+        // add confirmation
+        echo "Riding Saved";
+    }
+    catch (Exception $err) {
+        // show generic error page
+        header('location:ridings.php'); 
+    }
+   
 }
 ?>
 </body>
