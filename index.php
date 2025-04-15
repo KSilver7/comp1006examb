@@ -9,6 +9,7 @@ require 'include/header.php';
     <p>Source Code available on
         <a href="https://github.com/ifotn/comp1006-final-w25.git">GitHub</a>.
     </p>
+    <iframe frameBorder="0" width="450" height="200" src="https://kwize.com/quote-of-the-day/embed/&txt=0"></iframe><a style="display:block; font-size:12px; color:black;" href="https://kwize.com/quote-of-the-day/">Quote of the day @Kwize</a>
 </main>
 </body>
 </html>
