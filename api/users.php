@@ -7,17 +7,17 @@ $name = null;
 // fetch users frome examusers
 $sql = "SELECT * FROM examusers";
 
-// add where clause filter if url has a username parameter
-if (!empty($_GET['username'])) {
-    $name = $_GET['username'];
-    $sql .= " WHERE username = :username";
+// add where clause filter if url has a name parameter
+if (!empty($_GET['name'])) {
+    $name = $_GET['name'];
+    $sql .= " WHERE name = :name";
 }
 
 $cmd = $db->prepare($sql);
 
 // fill username param if we have one
-if (!empty($_GET['username'])) {
-    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 100);
+if (!empty($_GET['name'])) {
+    $cmd->bindParam(':name', $name, PDO::PARAM_STR, 100);
 }
 
 $cmd->execute();
