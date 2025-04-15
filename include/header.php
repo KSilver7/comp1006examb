@@ -20,6 +20,18 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="ridings.php">Electoral Ridings</a>
                 </li>
+                <?php
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                if (isset($_SESSION['username'])) {
+                    echo '
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.php">Users</a>
+                    </li>'
+                }
+                ?>
+                
             </ul>
             <ul class="navbar-nav ms-auto">
                 <?php
